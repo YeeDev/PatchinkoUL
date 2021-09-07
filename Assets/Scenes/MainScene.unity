@@ -6075,38 +6075,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1865891470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5868652293120359085, guid: 6cdd5a6d39f6a4f6596965a68eb28476, type: 3}
-  m_PrefabInstance: {fileID: 5868652292530455587}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1865891471
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865891470}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!114 &1865891474 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5868652293120359089, guid: 6cdd5a6d39f6a4f6596965a68eb28476, type: 3}
   m_PrefabInstance: {fileID: 5868652292530455587}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865891470}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ffd67bee81d44bb8e6909406f7497d, type: 3}

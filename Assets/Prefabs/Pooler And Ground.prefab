@@ -872,6 +872,7 @@ GameObject:
   - component: {fileID: 5868652293120359084}
   - component: {fileID: 5868652293120359090}
   - component: {fileID: 5868652293120359089}
+  - component: {fileID: 1865891471}
   m_Layer: 0
   m_Name: Pooler And Ground
   m_TagString: Untagged
@@ -998,3 +999,25 @@ MonoBehaviour:
   - {fileID: 4704376371001011884}
   spawnRate: 8
   minimumSpawnRate: 2
+  appleCrushParticles: {fileID: 4600438940237787931, guid: 9bac710719e2b46e8b6cb3402a73c1b8, type: 3}
+--- !u!50 &1865891471
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868652293120359085}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

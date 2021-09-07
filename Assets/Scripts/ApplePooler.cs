@@ -9,6 +9,7 @@ public class ApplePooler : MonoBehaviour
     [SerializeField] Transform[] spawnPoints = null;
     [SerializeField] float spawnRate = 2;
     [SerializeField] float minimumSpawnRate = 0.5f;
+    [SerializeField] GameObject appleCrushParticles = null;
 
     Queue<GameObject> applesQueue = new Queue<GameObject>();
 
@@ -58,6 +59,7 @@ public class ApplePooler : MonoBehaviour
         if (collision.transform.CompareTag("Apple"))
         {
             EnqueueApple(collision.gameObject);
+            Instantiate(appleCrushParticles, collision.GetContact(0).point, appleCrushParticles.transform.rotation);
         }
     }
 }
