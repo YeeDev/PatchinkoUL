@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0.1f;
+    [SerializeField] ApplePooler pooler = null;
 
     bool facingLeft;
     float xAxis;
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.CompareTag("Apple"))
         {
-            Destroy(collision.gameObject);
+            pooler.EnqueueApple(collision.gameObject);
         }
     }
 
