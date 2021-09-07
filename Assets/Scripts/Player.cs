@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 0.1f;
     [SerializeField] ApplePooler pooler = null;
     [SerializeField] ParticleSystem pickUpParticles = null;
+    [SerializeField] AudioSource audioSource = null;
+    [SerializeField] AudioClip pickUpClip = null;
 
     bool facingLeft;
     float xAxis;
@@ -38,6 +40,7 @@ public class Player : MonoBehaviour
         {
             pooler.EnqueueApple(collision.gameObject);
             pickUpParticles.Play();
+            audioSource.PlayOneShot(pickUpClip);
         }
     }
 

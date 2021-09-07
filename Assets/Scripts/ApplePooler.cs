@@ -10,6 +10,8 @@ public class ApplePooler : MonoBehaviour
     [SerializeField] float spawnRate = 2;
     [SerializeField] float minimumSpawnRate = 0.5f;
     [SerializeField] GameObject appleCrushParticles = null;
+    [SerializeField] AudioSource audioSource = null;
+    [SerializeField] AudioClip appleDestroySound = null;
 
     Queue<GameObject> applesQueue = new Queue<GameObject>();
 
@@ -60,6 +62,7 @@ public class ApplePooler : MonoBehaviour
         {
             EnqueueApple(collision.gameObject);
             Instantiate(appleCrushParticles, collision.GetContact(0).point, appleCrushParticles.transform.rotation);
+            audioSource.PlayOneShot(appleDestroySound);
         }
     }
 }
