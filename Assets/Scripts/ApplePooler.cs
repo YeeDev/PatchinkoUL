@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ApplePooler : MonoBehaviour
 {
+    [Header("Apples Settings")]
     [SerializeField] GameObject applePrefab = null;
     [SerializeField] int appleStartCreation = 10;
     [SerializeField] Transform[] spawnPoints = null;
     [SerializeField] float spawnRate = 2;
     [SerializeField] float minimumSpawnRate = 0.5f;
+    [Header("Apples Effects")]
     [SerializeField] GameObject appleCrushParticles = null;
     [SerializeField] AudioSource audioSource = null;
     [SerializeField] AudioClip appleDestroySound = null;
+    [Header("Others")]
+    [SerializeField] LifeHandler lifeHandler = null;
 
     Queue<GameObject> applesQueue = new Queue<GameObject>();
 
@@ -63,6 +67,7 @@ public class ApplePooler : MonoBehaviour
             EnqueueApple(collision.gameObject);
             Instantiate(appleCrushParticles, collision.GetContact(0).point, appleCrushParticles.transform.rotation);
             audioSource.PlayOneShot(appleDestroySound);
+            lifeHandler.SetHeartsSize(-1, false);
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem pickUpParticles = null;
     [SerializeField] AudioSource audioSource = null;
     [SerializeField] AudioClip pickUpClip = null;
+    [SerializeField] ScoreUpdater scoreUpdater = null;
 
     bool facingLeft;
     float xAxis;
@@ -17,12 +16,16 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
+
         anm = GetComponent<Animator>();
         rg2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0)) { return; }
+
         xAxis = Input.GetAxisRaw("Horizontal");
         anm.SetBool("IsWalking", Mathf.Abs(xAxis) > 0);
 
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Mathf.Approximately(Time.timeScale, 0)) { return; }
+
         rg2D.MovePosition(transform.position + Vector3.right * xAxis * moveSpeed);
     }
 
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour
             pooler.EnqueueApple(collision.gameObject);
             pickUpParticles.Play();
             audioSource.PlayOneShot(pickUpClip);
+            scoreUpdater.UpdateScore();
         }
     }
 
