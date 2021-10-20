@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource audioSource = null;
     [SerializeField] AudioClip pickUpClip = null;
     [SerializeField] ScoreUpdater scoreUpdater = null;
+    [SerializeField] float maxAndMinDistance = 0.9f;
 
     bool facingLeft;
     float xAxis;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         anm.SetBool("IsWalking", Mathf.Abs(xAxis) > 0);
 
         CheckIfFlip();
+        ClampPosition();
     }
 
     private void FixedUpdate()
@@ -68,5 +70,12 @@ public class Player : MonoBehaviour
         Vector3 flipScale = transform.localScale;
         flipScale.x *= -1;
         transform.localScale = flipScale;
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 clampedPos = transform.position;
+        clampedPos.x = Mathf.Clamp(transform.position.x, -maxAndMinDistance, maxAndMinDistance);
+        transform.position = clampedPos;
     }
 }

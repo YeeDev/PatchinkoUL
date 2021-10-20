@@ -67,7 +67,7 @@ public class ApplePooler : MonoBehaviour
             EnqueueApple(collision.gameObject);
             Instantiate(appleCrushParticles, collision.GetContact(0).point, appleCrushParticles.transform.rotation);
             audioSource.PlayOneShot(appleDestroySound);
-            lifeHandler.SetHeartsSize(-1, false);
+            lifeHandler.SetHeartsSize(-1);
         }
     }
 }
